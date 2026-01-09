@@ -7,3 +7,37 @@ const emptyEl=document.getElementById("empty-state");
 
 let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
+saveBtn.addEventListener("click", addNotes);
+
+titleEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        descEl.focus();
+    }
+});
+
+descEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        addNotes();
+    }
+});
+
+function addNotes() {
+    const title = titleEl.value.trim();
+    const description = descEl.value.trim();
+    if ((!title) || (!description) ){
+        return;
+    }
+
+    tasks.push ( {
+        title: title,
+        description: description
+    });
+
+    titleEl.value = "";
+    descEl.value = "";
+    titleEl.focus();
+
+    saveAndRender();
+}
