@@ -2,8 +2,8 @@ const countEl = document.getElementById("notes-count");
 const titleEl=document.getElementById("note-title");
 const descEl=document.getElementById("note-description");
 const saveBtn=document.getElementById("save-btn");
-const notesList=document.getElementById("notes-list");
-const emptyEl=document.getElementById("empty-state");
+const notesList=document.querySelectorAll(".note-list");
+const emptyEl=document.querySelector(".empty-state");
 
 let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
@@ -30,7 +30,7 @@ function addNotes() {
         return;
     }
 
-    tasks.push ( {
+    notes.push ( {
         title: title,
         description: description
     });
@@ -40,4 +40,17 @@ function addNotes() {
     titleEl.focus();
 
     saveAndRender();
+}
+
+function updateCount(){
+    countEl.innerText = `${notes.length} notes`;
+}
+
+function showEmptyState(){
+ emptyEl.style.display = notes.length === 0 ? "block" : "none";
+}
+
+function saveAndRender(){
+    localStorage.setItem("notes", JSON.stringify(notes));
+    renderNotes();
 }
