@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f2f4f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 80%;
+    height: 80vh;               
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    font-size: 26px;
+    color: #1f2937;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 6px;
+}
+
+.live-notes {
+    text-align: center;
+    margin: 14px 0;
+}
+
+.live-notes span {
+    background: #e5edff;
+    color: #2563eb;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+#note-title {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-section button {
+    padding: 12px 18px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.input-section button:hover {
+    background: #1e4ed8;
+}
+
+#note-description {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-section input:focus {
+    border-color: #2563eb;
+}
+
+
+
+
+.note-list {
+    list-style: none;
+    flex: 1;                      
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 6px;
+}
+
+
+.note-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.note-list::-webkit-scrollbar-thumb {
+    background: #c7d2fe;
+    border-radius: 10px;
+}
+
+.note-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 6px;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background 0.2s ease;
+}
+
+.note-item:hover {
+    background: #f9fafb;
+}
+
+.note-item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.note-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #22c55e;
+    cursor: pointer;
+}
+
+.note-item span {
+    font-size: 15px;
+    color: #1f2937;
+}
+
+.todo-item.completed span {
+    text-decoration: line-through;
+    color: #9ca3af;
+}
+
+
+
+.delete-btn {
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    color: #dc2626;
+}
+
+.empty-state {
+    text-align: center;
+    margin-top: 16px;
+    color: #6b7280;
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        height: 90vh;
+    }
+}
