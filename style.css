@@ -15,7 +15,8 @@ body {
 
 .container {
     width: 80%;
-    height: 80vh;               
+    max-width: 1000px;
+    height: 80vh;
     background: #ffffff;
     border-radius: 14px;
     padding: 24px;
@@ -51,7 +52,6 @@ h1 {
     font-weight: 600;
 }
 
-
 .input-section {
     display: flex;
     flex-wrap: wrap;
@@ -61,6 +61,15 @@ h1 {
 
 #note-title {
     flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+    outline: none;
+}
+
+#note-description {
+    width: 100%;
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #d1d5db;
@@ -83,87 +92,106 @@ h1 {
     background: #1e4ed8;
 }
 
-#note-description {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #d1d5db;
-    font-size: 14px;
-    outline: none;
-}
-
 .input-section input:focus {
     border-color: #2563eb;
 }
 
-
-
-
 .note-list {
     list-style: none;
-    flex: 1;                      
+    margin-top: 10px;
+    padding: 0;
     overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 6px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
 }
 
+.note-item {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    position: relative;
+    transition: 0.2s ease;
+}
+
+.note-item:hover {
+    background: #f3f4f6;
+    transform: scale(1.01);
+}
+
+.note-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 28px;
+}
+
+.note-content .title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.note-content .description {
+    color: #6b7280;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.note-content .time {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.note-item button {
+    position: absolute;
+    top: 14px;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-btn {
+    right: 56px;
+    background: #fbbf24;
+}
+
+.edit-btn:hover {
+    background: #f59e0b;
+}
+
+.delete-btn {
+    right: 14px;
+    background: #ef4444;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
 
 .note-list::-webkit-scrollbar {
     width: 6px;
 }
 
 .note-list::-webkit-scrollbar-thumb {
-    background: #c7d2fe;
+    background: #d1d5db;
     border-radius: 10px;
 }
 
-.note-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 6px;
-    border-bottom: 1px solid #e5e7eb;
-    transition: background 0.2s ease;
-}
-
-.note-item:hover {
-    background: #f9fafb;
-}
-
-.note-item label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.note-item input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #22c55e;
-    cursor: pointer;
-}
-
-.note-item span {
-    font-size: 15px;
-    color: #1f2937;
-}
-
-.todo-item.completed span {
-    text-decoration: line-through;
-    color: #9ca3af;
-}
-
-
-
-.delete-btn {
-    color: #ef4444;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.delete-btn:hover {
-    color: #dc2626;
+.note-list::-webkit-scrollbar-track {
+    background: transparent;
 }
 
 .empty-state {
